@@ -1,1 +1,1 @@
-## This is the repository for rantdome.github.io
+## respository for rantdome.github.io
