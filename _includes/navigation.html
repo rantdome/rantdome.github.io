@@ -1,0 +1,14 @@
+<header class="page-header" id="page-header" >
+	<h1 class="title" >Daily rant</h1>
+  <input type="checkbox" id="menu-toggle" />
+	<label for="menu-toggle" class="hamburger">&#9776;</label>
+	<nav id="nav">
+		<ul class="nav" >
+			{% for item in site.data.navigation %}
+			<li>
+				<a href="{{ item.link }}" {% if page.url == item.link %} class="navz current" {% else %} class ="navz" {% endif %}>{{ item.name }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>

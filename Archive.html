@@ -1,0 +1,19 @@
+---
+layout: default
+title: Blog Archive
+permalink: /Archive
+---
+
+<div class="archive-body">
+<div class="LatestPost">
+<h1>Blog Archive</h1>
+</div>
+
+{% for post in site.posts %}
+ <li class="archive-list"><span class="archive-date">{{ post.date | date_to_string }}</span> &nbsp; <a class="archive-title" href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
+	
+
+</div>
+
+
