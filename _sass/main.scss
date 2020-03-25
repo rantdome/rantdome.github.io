@@ -1,5 +1,5 @@
 :root{
-	font-size: 0.75em;
+	font-size: 1em;
 }
 
 @keyframes showNav {
@@ -7,15 +7,20 @@
 		  to {opacity: 1;}
 }
 
-#menu-toggle, .hamburger{
-	display:none;
+#menuToggle{
+	display: none;
 }
 
 @media (max-width: 375px) {
+	li > #card {
+		margin: 0 0 1em;
+	}
+
 	#nav{
 		display: none;
 	}
-	#page-header {
+	#page-header.page-header {
+		position: relative;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -26,32 +31,152 @@
 		position: relative;
 		font-size: 1.6em;
 	}
-	#menu-toggle, .hamburger {
-		display: flex;
-		font-size: 2em;
 
+	#menuToggle
+	{
+	  display: block;
+	  position: relative;
+	  /*top: 0;*/
+	  /*right: 25px;*/
+	  
+	  z-index: 1;
+	  
+	  -webkit-user-select: none;
+	  user-select: none;
 	}
-	#menu-toggle{
-		margin-left: 1.5em;
-		position: absolute;
-		opacity: 0;
-		cursor: pointer;
-		height: 0;
-		widht:0;
+
+
+	#menuToggle a
+	{
+	  text-decoration: none;
+	  color: #232323;
+	  
+	  transition: color 0.3s ease;
 	}
-	input[type=checkbox]:checked  ~ #nav {
-		position: absolute;
-		top: 5em;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		display: flex;
-		flex: 1;
-		flex-direction: row;
-		justify-content: space-around;
-		background-color: rgba(0, 0, 0, 0.5);
-		animation: showNav 250ms ease-in-out both;
+
+	#menuToggle a:hover
+	{
+	  color: tomato;
 	}
+
+
+	#menuToggle input
+	{
+	  display: block;
+	  width: 40px;
+	  height: 32px;
+	  position: absolute;
+	  top: -7px;
+	  right: -5px;
+	  
+	  cursor: pointer;
+	  
+	  opacity: 0; /* hide this */
+	  z-index: 2; /* and place it over the hamburger */
+	  
+	  -webkit-touch-callout: none;
+	}
+
+	/*
+	 * Just a quick hamburger
+	 */
+	#menuToggle span
+	{
+	  display: block;
+	  width: 33px;
+	  height: 4px;
+	  margin-bottom: 5px;
+	  position: relative;
+	  
+	  background: #cdcdcd;
+	  border-radius: 3px;
+	  
+	  z-index: 1;
+	  
+	  transform-origin: 4px 0px;
+	  
+	  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+	              opacity 0.55s ease;
+	}
+
+	#menuToggle span:first-child
+	{
+	  transform-origin: 0% 0%;
+	}
+
+	#menuToggle span:nth-last-child(2)
+	{
+	  transform-origin: 0% 100%;
+	}
+
+	/* 
+	 * Transform all the slices of hamburger
+	 * into a crossmark.
+	 */
+	#menuToggle input:checked ~ span
+	{
+	  opacity: 1;
+	  transform: rotate(45deg) translate(-2px, -1px);
+	  background: #232323;
+	}
+
+	/*
+	 * But let's hide the middle one.
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(3)
+	{
+	  opacity: 0;
+	  transform: rotate(0deg) scale(0.2, 0.2);
+	}
+
+	/*
+	 * Ohyeah and the last one should go the other direction
+	 */
+	#menuToggle input:checked ~ span:nth-last-child(2)
+	{
+	  transform: rotate(-45deg) translate(0, -1px);
+	}
+
+	/*
+	 * Make this absolute positioned
+	 * at the top left of the screen
+	 */
+	#menu
+	{
+	  position: absolute;
+	  height: 100vh;
+	  width: 300px;
+	  
+	  margin: -50px 0 0 -200px;
+	  padding: 30px;
+	  padding-top: 125px;
+	  
+	  background: #ededed;
+	  list-style-type: none;
+	  -webkit-font-smoothing: antialiased;
+	  /* to stop flickering of text in safari */
+	  
+	  transform-origin: 0% 0%;
+	  transform: translate(-200%, 0);
+	  
+	  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+	}
+
+	#menu li
+	{
+	  padding: 10px 0;
+	  font-size: 22px;
+	}
+
+	/*
+	 * And let's slide it in from the left
+	 */
+	#menuToggle input:checked ~ ul
+	{
+	  transform: none;
+	}
+
 
 	 .gambar > .feat-img{
 		display: none;
@@ -59,11 +184,41 @@
 	
 }
 
-@media (min-width: 800px) {
+@media (max-width: 910px) {
+	#sidebarz {
+		display: none;	
+	}
+
+	#mainz {
+		margin: 0;
+		padding: 0;
+		flex: 1;
+	}
+	#card {
+		margin: 0 1em 1em;
+	}
+
+
+	#LatestPost{
+		margin: 0 1em;
+	}
+
+		 .gambar > .feat-img{
+		display: none;
+	}
+
+}
+
+@media (min-width: 911px) {
 	:root{
-		font-size: 0.875em;
+		/*font-size: 0.875em;*/
+		font-size: 1em;
 	}
 	#menu-toggle, .hamburger {
+		display: none;
+	}
+
+	#nav-z {
 		display: none;
 	}
 
@@ -78,16 +233,19 @@
 	}
 }
 
+
+
 body{
 	font-family: Palatino,Georgia,Times;
 	height: 100vh;
 	padding: 0;
 	margin: 0;
-	background-color: #cae6f6ff;
+	background-color: white;
+	/*background-color: #cae6f6ff;*/
 }
 
 .container {
-	max-width: 1080px;
+	/*max-width: 1080px;*/
 	box-shadow: 1px 0px 1px 1px black;
 	margin: 0 auto;
 	min-width: 246px;
@@ -105,11 +263,12 @@ body{
 }
 
 .page-header{
-	background-color: #62c0cbff;
+	background-color: #1e2627;
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
 	box-shadow: 0px 2px 2px 1px #1a1a1ae6;
+	margin-bottom: 1em;
 }
 .page-header > h1 {
 	color: white;
@@ -117,7 +276,13 @@ body{
 	text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
+
+
 .nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	margin-top: 10px;
 	list-style: none;
 	padding-left: 0;
@@ -125,23 +290,36 @@ body{
 
 nav li {
 	display: inline-block;
+	margin: 0.5em 0.5em 0;
+	
+	
+}
+
+nav li:nth-child(odd) {
+   margin-right: auto;
+}
+
+nav li:nth-child(even) {
+    margin-left: auto;
 }
 
 nav a {
+	display: inline-block;
 	font-size: 1.2em;
 	color: white;
-	background-color: #c6c6c6ff;
+	/*background-color: #c6c6c6ff;*/
+	background-color: black;
 	padding: .3em .6em;
 	border-radius: .3em;
 	text-decoration: none;
 	font-weight: bold;
-	box-shadow: 0px 2px 0px 0px #1a1a1ae6;
-	text-shadow: 0px 2px 0px rgba(0,0,0,0.3);
+	/*box-shadow: 0px 2px 0px 0px #1a1a1ae6;*/
+	/*text-shadow: 0px 2px 0px rgba(0,0,0,0.3);*/
 }
 
-nav li + li {
+/**nav li + li {
 	margin-left: .75em;
-}
+}**/
 
 .current {
 	color: red;
@@ -154,7 +332,8 @@ nav li + li {
 }
 
 .main {
-	padding: 15px;
+	padding: 0;
+	margin: 0;
 }
 
 
@@ -165,18 +344,18 @@ nav li + li {
 
 #listPost>li>.card>.card-title > h2 > a {
 	text-decoration: none;
-	color: red;
+	color: #f0f0f0;
 	margin-top: 0;
 }
 #listPost>li>.card>.card-title > h2 {
-	margin-top: 0;
-	margin-bottom: 0;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 .card {
 	
 	border-radius: .5em;
-	box-shadow: 2px 2px 1px 0px rgba(0,0,0,0.3);
+	box-shadow: 0 8px 6px -6px black;
 	margin-bottom: 1em;
 }
 
@@ -185,28 +364,39 @@ nav li + li {
 }
 
 .card-title{
-	padding: .5em;
-	background-color: #bbe8f5ff;
-	border: 1px solid green;
+	padding: 1em;
+	background-color: #35464b;
+	
+}
+
+#listPost > li > .card > .card-title > h2 > a:hover {
+	color: yellow;
 }
 
 .card-title .post-meta {
 	color: white;
 	font-weight: bold;
-	font-size: .6em;
+	font-size: .7em;
 	padding: .5em;
-	background-color: #fca6c6ff;
+	background-color: #381b25;
 	border-radius: 0.5em 0.5em;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+	margin-top: .5em;
+	
+	
 	text-decoration: none;
+}
+
+
+.card-title .post-meta:hover {
+	background-color: white;
+	color: black;
 }
 
 #card > .card-body {
 	display: flex;
-	padding: 2em;
+	padding: 1em;
 	text-decoration: none;
-	border: 1px solid green;
+	background-color: #DDD;
 	border-top: white;
 	justify-content: flex-end;
 	align-items: center;
@@ -238,15 +428,15 @@ nav li + li {
 	
 	font-size: 1em;
 	color: white;
-	background-color: #c6c6c6ff;
+	background-color: #231f1f;
 	padding: .3em .6em;
 	border-radius: .3em;
 	text-decoration: none;
 	font-weight: bold;
-	box-shadow: 0px 2px 0px 0px #1a1a1ae6;
-	text-shadow: 0px 2px 0px rgba(0,0,0,0.3);
+	/*box-shadow: 0px 2px 0px 0px #1a1a1ae6;*/
+	/*text-shadow: 0px 2px 0px rgba(0,0,0,0.3);*/
 	margin-bottom: 1.5em;
-	
+	margin-top: auto;
 }
 
 .card-content > a:hover {
@@ -255,7 +445,11 @@ nav li + li {
 }
 
 .card-content > p{
-	color: #000000ff;
+	font-family: Palatino,Georgia,Times;
+	font-weight: bold;
+	line-height: 2em;
+	margin: 0 1em 2em;
+	color: #3f0b0b;
 }
 
 .card-body > #gambar {
@@ -268,6 +462,7 @@ nav li + li {
 
 .gambar > .feat-img {
 	width: 200px;
+
 }
 
 
@@ -278,6 +473,11 @@ nav li + li {
 	padding: 15px 0;
 	text-align: center;
 	font-size: 14px;
+
+}
+
+.blog-body {
+	padding: 15px;
 }
 
 .blog-title{
@@ -356,6 +556,10 @@ nav li + li {
 }
 
 
+#archives {
+	padding: 1em;
+}
+
 .archive-item > h4 > a {
 	color: white;
 	text-decoration: none;
@@ -381,3 +585,160 @@ nav li + li {
 	display: inline-block;
 	color: green;
 }
+
+.archive-body {
+	padding: 1em;
+}
+
+.layoutz {
+	display:flex;
+	flex-direction: row;
+}
+
+.sidebarz {
+	width: 20%;
+	height: 100%;
+	background-color: black;
+	position: fixed;
+ 	z-index: 1;
+  	top: 0;
+  	left: 0;
+
+  	display: flex;
+  	flex-direction: column;
+  	padding-top: 1em;
+  	justify-content: flex-start;
+  	align-items: center;
+	
+}
+
+.mainz {
+	width: 80%;
+	margin-left: 20%;
+	padding: 1em 2%;
+	
+
+}
+
+.sidebarz > .imgz {
+    position: relative;
+    z-index: 2;
+	width: 150px;
+	height: 150px;
+	border: 1px solid white;
+	border-radius: 50%;
+	background: url('/assets/images/profpic.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.sidebarz > .contactz {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	height: 10%;
+	width: 100%;
+	margin-top: 1em;
+	/*background-color: grey;*/
+}
+
+.contactz [class*="fab fa-"] {
+	text-decoration: none;
+    background-color: #333;
+    border-radius: 30px;
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: auto 3px;
+    width: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.contactz [class*="fa fa-"] {
+	text-decoration: none;
+    background-color: #333;
+    border-radius: 30px;
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: auto 3px;
+    width: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+
+.fa-twitter:hover { 
+    background-color: #46c0fb; 
+}
+
+.fa-github:hover {
+	background-color: white;
+	color: black;
+}
+
+.fa-envelope:hover {
+	background-color: white;
+	color: red;
+}
+
+.fas {
+	margin: 0 0.2em;
+}
+
+
+.sidebarz > .listz {
+	width: 100%;
+	padding-left: 0px;
+}
+
+.listz > li {
+	list-style: none;
+	/*background-color: orange;*/
+	
+}
+
+.listz > li + li {
+	margin-top: .5em;
+	
+}
+
+
+.listz > li > a {
+	font-weight: bold;
+	font-size: 1.2em;
+	padding: .5em 1em;
+	background-color: orange;
+	text-decoration: none;
+	color: white;
+	display: block;
+	transition: all 0.3s;
+} 
+
+.listz > li > a:hover {
+	background-color: white;
+	color: orange;
+	/*transform: translate(-1em);*/
+	transform: scale(1.1);
+	-webkit-font-smoothing: antialiased;
+
+} 
+
+
+#meta-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.card-title .post-meta + .post-meta {
+	margin-left: 1em;
+}
+
+

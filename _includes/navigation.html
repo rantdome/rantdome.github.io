@@ -1,12 +1,42 @@
 <header class="page-header" id="page-header" >
 	<h1 class="title" >Daily rant</h1>
-  <input type="checkbox" id="menu-toggle" />
-	<label for="menu-toggle" class="hamburger">&#9776;</label>
+
+    <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input type="checkbox" />
+    
+    <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+    <span></span>
+    <span></span>
+    <span></span>
+    
+    <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+    <ul id="menu">
+			{% for item in site.data.navigation %}
+			<li>
+				<a href="{{ item.link }}" {% if page.url == item.link %} class="navz current" {% else %} class ="navz" {% endif %}><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
+			</li>
+			{% endfor %}
+    </ul>
+  </div>
+
 	<nav id="nav">
 		<ul class="nav" >
 			{% for item in site.data.navigation %}
 			<li>
-				<a href="{{ item.link }}" {% if page.url == item.link %} class="navz current" {% else %} class ="navz" {% endif %}>{{ item.name }}</a>
+
+				<a href="{{ item.link }}" {% if page.url == item.link %} class="navz current" {% else %} class ="navz" {% endif %}><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
 			</li>
 			{% endfor %}
 		</ul>

@@ -3,7 +3,40 @@
 title: Home
 layout: default
 ---
-<div class="LatestPost">
+
+<div class="layoutz">
+
+<div class="sidebarz" id="sidebarz">
+	<div class="imgz">
+		
+	</div>
+	
+	
+	<div class="contactz">
+		<a class="fab fa-twitter" title="" target="_blank" href="#"></a>
+		<a class="fab fa-github" title="" target="_blank" href="#"></a>
+  		<a class="fa fa-envelope" title="" target="_blank" href="#"></a>
+	</div>
+
+	<ul class="listz">
+			{% for item in site.data.navigation %}
+			<li>
+				<a href="{{ item.link }}" {% if page.url == item.link %} class="navz current" {% else %} class ="navz" {% endif %}><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
+			</li>
+			{% endfor %}
+	</ul>
+
+
+
+</div>
+
+<main class="mainz" id="mainz">
+<div id="nav-z">
+{% include navigation.html %}
+</div>
+
+
+<div class="LatestPost" id="LatestPost">
 	<h1>Latest Posts</h1>
 </div>
 
@@ -13,7 +46,8 @@ layout: default
 		<div class="card" id="card">
 			<div class="card-title">
 				<h2><a href="{{post.url}}"  >{{post.title}}</a></h2>
-				<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+				<div id="meta-list">
+				<span class="post-meta"><i class="fas fa-calendar-alt fa-fw"></i>{{ post.date | date: "%b %-d, %Y" }}</span>
 				  {% if post %}
 				    {% assign categories = post.categories %}
 				  {% else %}
@@ -22,11 +56,12 @@ layout: default
 				  {% for category in categories %}
 				  <!-- <span class="post-meta">{{ category }}</span> -->
 				  
-				  <a class="post-meta {{category}}" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+				  <a class="post-meta {{category}}" href="{{site.baseurl}}/categories/#{{category|slugize}}"><i class="fas fa-tag fa-fw"></i>{{category}}</a>
 				  <!-- {% unless forloop.last %}&nbsp;{% endunless %} -->
 				  {% endfor %}
 
-				{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}			
+				{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
+				</div>			
 			</div>
 
 			<div class="card-body"  >
@@ -43,6 +78,6 @@ layout: default
 	</li>
 	{% endfor %}
 </ul>
-
-
+</main>
+</div>
 {% include paginator.html %}

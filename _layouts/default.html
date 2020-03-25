@@ -14,14 +14,23 @@
 			       {{ site.title }}
 			   {% endif %}
 		</title>
+		<link href="/assets/css/all.css" rel="stylesheet">
 		<link rel="stylesheet" href="/assets/css/styles.css">
 		<link rel="shortcut icon" type="image/png" href="/favicon.png">	
 	</head>
 	<body>
 		<div class="container">
-		{% include navigation.html %}
+
+			   {%if page.url != "/" %}
+			       {% include navigation.html %}			       
+			   {% endif %}
+
+
+		
 		<main class="main" id="main">
+			
 			{{content}}		
+			
 		</main>
 		<footer class="footerz">
 			&copy; {{ site.time | date: '%Y' }}  &mdash; 

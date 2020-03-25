@@ -1,9 +1,20 @@
 - name: Home
   link: /
+  font: fa-home
 #- name: About
 #  link: /about.html
-- name: Blog Archive
+- name: Archive
   link: /Archive.html
+  font: fa-archive
 #- name: Blog
 #  link: /blog.html
+- name: Download
+  link: /Archive.html
+  font: fa-download
+
+- name: Project
+  link: /Archive.html
+  font: fa-tasks
+
+
 
