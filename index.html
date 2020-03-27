@@ -21,7 +21,7 @@ layout: default
 	<ul class="listz">
 			{% for item in site.data.navigation %}
 			<li>
-				<a href="{{ item.link }}" {% if page.url == item.link %} class="navz current" {% else %} class ="navz" {% endif %}><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
+				<a href="{{ item.link }}" {% if page.url == item.link %} id="current" {% else %} class ="navz" {% endif %} ><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
 			</li>
 			{% endfor %}
 	</ul>

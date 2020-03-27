@@ -5,6 +5,46 @@ title: Categories
 ---
 
 
+
+
+<div class="layoutz">
+
+<div class="sidebarz project" id="sidebarz">
+  
+  <div class="imgz">
+    
+  </div>
+  
+  
+  <div class="contactz">
+    <a class="fab fa-twitter" title="" target="_blank" href="https://www.twitter.com/zckwzk"></a>
+    <a class="fab fa-github" title="" target="_blank" href="https://github.com/rantdome/"></a>
+      <a class="fa fa-envelope" title="" target="_blank" href="mailto:rantdomez@gmail.com"></a>
+  </div>
+
+  <ul class="listz">
+      {% for item in site.data.navigation %}
+      <li>
+        <a href="{{ item.link }}" {% if page.url == item.link %} id="current" {% else %} class ="navz" {% endif %}><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
+      </li>
+      {% endfor %}
+  </ul>
+
+
+
+</div>
+
+<main class="mainz" id="mainz">
+
+<div id="nav-z">
+{% include navigation.html %}
+</div>
+
+<div class="LatestPost" id="Categories">
+  <h1>Categories</h1>
+</div>
+
+
 <div id="archives">
 
 {% for category in site.categories %}
@@ -13,7 +53,7 @@ title: Categories
     <div id="#{{ category_name | slugize }}"></div>
     <p></p>
 
-    <h3 class="category-head">{{ category_name }}</h3>
+    <h3 class="category-head">Category: {{ category_name }}</h3>
     <a name="{{ category_name | slugize }}"></a>
     {% for post in site.categories[category_name] %}
     <article class="archive-item">
@@ -23,3 +63,9 @@ title: Categories
   </div>
 {% endfor %}
 </div>
+
+
+</main>
+</div>
+
+

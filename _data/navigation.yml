@@ -3,17 +3,21 @@
   font: fa-home
 #- name: About
 #  link: /about.html
+- name: Categories
+  link: /categories/
+  font: fa-tag
+
 - name: Archive
-  link: /Archive.html
+  link: /Archive
   font: fa-archive
 #- name: Blog
 #  link: /blog.html
 - name: Download
-  link: /Archive.html
+  link: /Download
   font: fa-download
 
 - name: Project
-  link: /Archive.html
+  link: /Project
   font: fa-tasks
 
 

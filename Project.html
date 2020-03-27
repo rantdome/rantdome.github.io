@@ -1,0 +1,57 @@
+---
+layout: default
+title: Blog Project
+permalink: /Project
+---
+
+<div class="layoutz">
+
+<div class="sidebarz project" id="sidebarz">
+	
+	<div class="imgz">
+		
+	</div>
+	
+	
+	<div class="contactz">
+		<a class="fab fa-twitter" title="" target="_blank" href="https://www.twitter.com/zckwzk"></a>
+		<a class="fab fa-github" title="" target="_blank" href="https://github.com/rantdome/"></a>
+  		<a class="fa fa-envelope" title="" target="_blank" href="mailto:rantdomez@gmail.com"></a>
+	</div>
+
+	<ul class="listz">
+			{% for item in site.data.navigation %}
+			<li>
+				<a href="{{ item.link }}" {% if page.url == item.link %} id="current" {% else %} class ="navz" {% endif %}><i class="fas {{ item.font }} fa-fw"></i>{{ item.name }}</a>
+			</li>
+			{% endfor %}
+	</ul>
+
+
+
+</div>
+
+<main class="mainz" id="mainz">
+
+<div id="nav-z">
+{% include navigation.html %}
+</div>
+
+<div class="LatestPost" id="Categories">
+	<h1>Latest Project</h1>
+</div>
+
+<div id="project-deck">
+	
+	<div class="card-project">
+	  <img src="/assets/images/nodecli.png" alt="Avatar" style="width:100%" class="img-project">
+	  <div class="card-container-project">
+	    <h4><b>Pomodoro CLI using Node</b></h4> 
+	  </div>
+	</div>
+
+
+</div>
+
+</main>
+</div>
