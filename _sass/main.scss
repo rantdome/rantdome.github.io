@@ -1,5 +1,5 @@
 :root{
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 @keyframes showNav {
@@ -212,7 +212,7 @@
 @media (min-width: 1152px) {
 	:root{
 		/*font-size: 0.875em;*/
-		font-size: 1.2em;
+		font-size: 1em;
 	}
 	#menu-toggle, .hamburger {
 		display: none;
@@ -226,7 +226,7 @@
 
 @media (min-width: 1200px) {
 	:root{
-		font-size: 1.3em;
+		font-size: 1em;
 	}
 	#menu-toggle, .hamburger {
 		display: none;
