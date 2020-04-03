@@ -191,7 +191,7 @@
 
 	#mainz {
 		margin: 0;
-		padding: 0;
+		padding: 0 0 2.5em;
 		flex: 1;
 	}
 	#card {
@@ -220,6 +220,15 @@
 
 	#nav-z {
 		display: none;
+	}
+
+	#blog-body{
+		display: flex;
+		width: 80%;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 auto;
+		text-align: justify;
 	}
 
 }
@@ -332,7 +341,7 @@ nav a {
 }
 
 .main {
-	padding: 0;
+	padding: 0 0 2.5em;
 	margin: 0;
 }
 
@@ -355,7 +364,9 @@ nav a {
 .card {
 	
 	border-radius: .5em;
-	box-shadow: 0 8px 6px -6px black;
+	/*box-shadow: 0 8px 6px -6px black;*/
+	box-shadow: 0 1px 4px #999;
+    outline: 1px solid #CCC;
 	margin-bottom: 1em;
 }
 
@@ -473,7 +484,11 @@ nav a {
 	padding: 15px 0;
 	text-align: center;
 	font-size: 14px;
-
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
 }
 
 .blog-body {
@@ -485,7 +500,7 @@ nav a {
 	display: inline-block;
 	padding: .4em;
 	background-color: #2bc6f3ff;
-	text-shadow: 0px 2px 0px rgba(0,0,0,0.3);
+	/*text-shadow: 0px 2px 0px rgba(0,0,0,0.3);*/
 	/*box-shadow: 0px 2px 0px 0px #1a1a1ae6;*/
 	margin-bottom: .8em;
 }
@@ -505,6 +520,10 @@ nav a {
 
 .blog-content > p {
 	color: #5f5f5f;
+	text-align: justify;
+}
+#blog-content > ol > li{
+	color: #5f5f5f;
 }
 
 .blog-info > .meta {
@@ -515,6 +534,20 @@ nav a {
 	background-color: grey;
 	border-radius: 0.5em 0.5em;
 	margin-bottom: 0.5em;
+	text-decoration: none;
+	transition: all .3s;
+}
+
+
+
+
+.blog-info > .meta + .meta {
+	margin-left: 1em;
+}
+
+.blog-info > .meta:hover {
+	background-color: orange;
+	color: black;
 }
 
 .meta-author {
@@ -558,7 +591,7 @@ nav a {
 
 
 #archives {
-	padding: .5em 1em;
+	padding: .5em 1em 2.5em;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -621,11 +654,16 @@ nav a {
 .archive-title {
 	margin-top: .5em;
 	display: inline-block;
-	color: green;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 .archive-body {
 	padding: 1em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .layoutz {
@@ -653,9 +691,10 @@ nav a {
 .mainz {
 	width: 80%;
 	margin-left: 20%;
-	padding: 1em 2%;
+	padding: 1em 2% 2.5em;
 	height: 100%;
 	overflow: auto;
+	/*background-color: #e0e0e3;*/
 	
 
 }
@@ -817,6 +856,9 @@ nav a {
 	display: flex;
 	margin: 0;
 	padding: 1em;
+	justify-content: space-around;
+	
+	flex-wrap: wrap;
 }
 
 .card-project {
@@ -828,11 +870,14 @@ nav a {
   border: 1px solid pink;
   border-radius: 5px;
   transition: all 0.3s;
+  margin: 1em 0 0;
 }
+
+
 
 .card-project:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .img-project {
@@ -842,4 +887,36 @@ nav a {
 .card-container-project {
 
   padding: .5em;
+}
+
+@import "pomo";
+
+
+#pagination {
+	margin-top: auto;
+	margin-bottom: 1em;
+}
+
+.card-archive {
+	margin-top: 1em;
+	background-color: #333;
+	padding: 1em 2em;
+	border-radius: .5em;
+	box-shadow: 
+		2px 8px 6px -6px black,
+		-2px 0px 6px -6px black,;
+
+}
+
+.card-archive > h3 {
+	padding: .5em 0;
+	display: block;
+	background-color: black;
+	text-align: center;
+	color: white;
+}
+
+#Archives-deck {
+	padding-left: 0;
+	margin-top: 0;
 }

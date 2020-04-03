@@ -4,20 +4,20 @@
 #- name: About
 #  link: /about.html
 - name: Categories
-  link: /categories/
+  link: /pages/categories/
   font: fa-tag
 
 - name: Archive
-  link: /Archive
+  link: /pages/Archive
   font: fa-archive
 #- name: Blog
 #  link: /blog.html
 - name: Download
-  link: /Download
+  link: /pages/Download
   font: fa-download
 
 - name: Project
-  link: /Project
+  link: /pages/Project
   font: fa-tasks
 
 

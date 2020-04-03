@@ -17,9 +17,11 @@
 	</head>
 	<body>
 		<div class="container">
-				
-
-			   {%if page.url != "/" and page.url != "/Project" and page.url != "/categories/" and page.url != "/Download"   and page.url != "/Archive"  %}
+			
+			{% assign numPage = paginator.page | downcase  %}
+			{% assign startUrl = "/posts/page" | append:numPage%}
+			{% assign URL = startUrl | append:"/"%}
+			   {%if page.url != "/" and page.url != "/pages/Project" and page.url != "/pages/categories/" and page.url != "/pages/Download"   and page.url != "/pages/Archive" and  page.url != URL %}
 			       {% include navigation.html %}			       
 			   {% endif %}
 
@@ -31,7 +33,7 @@
 			
 		</main>
 		<footer class="footerz">
-			&copy; {{ site.time | date: '%Y' }}  &mdash; 
+			&copy; {{ site.time | date: '%Y' }}  &mdash; Made with ❤ by rantdome 
 		</footer>
 		</div>
 	</body>

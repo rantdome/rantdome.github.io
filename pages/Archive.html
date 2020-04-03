@@ -1,11 +1,8 @@
 ---
 layout: default
-permalink: /categories/
-title: Categories
+title: Blog Archive
+permalink: /pages/Archive
 ---
-
-
-
 
 <div class="layoutz">
 
@@ -41,31 +38,34 @@ title: Categories
 </div>
 
 <div class="LatestPost" id="Categories">
-  <h1>Categories</h1>
+  <h1> Blog Archives</h1>
 </div>
 
 
-<div id="archives">
+<div class="archive-body">
+{% assign postsByYearMonth = site.posts | group_by_exp:"post", "post.date | date: '%Y %b'"  %}
+{% for yearMonth in postsByYearMonth %}
 
-{% for category in site.categories %}
-  <div class="archive-group">
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    <div id="#{{ category_name | slugize }}"></div>
-    <p></p>
-
-    <h3 class="category-head"><i class="fas fa-tag fa-fw"></i> Category: {{ category_name }}</h3>
-    <a name="{{ category_name | slugize }}"></a>
-    {% for post in site.categories[category_name] %}
-    <article class="archive-item">
-      <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
-    </article>
-    {% endfor %}
-  </div>
+<div class="card-archive">
+<h3>{{ yearMonth.name }}</h3>
+<ul id="Archives-deck">
+{% for post in yearMonth.items %}
+ <li class="archive-list"><span class="archive-date">{{ post.date | date_to_string }}</span> &nbsp; <a class="archive-title" href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
+</ul>	
 </div>
+{% endfor %}
+
+
+
+
+</div>
+
 
 
 </main>
 </div>
+
+
 
 

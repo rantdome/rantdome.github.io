@@ -56,7 +56,7 @@ layout: default
 				  {% for category in categories %}
 				  <!-- <span class="post-meta">{{ category }}</span> -->
 				  
-				  <a class="post-meta {{category}}" href="{{site.baseurl}}/categories/#{{category|slugize}}"><i class="fas fa-tag fa-fw"></i>{{category}}</a>
+				  <a class="post-meta {{category}}" href="{{site.baseurl}}/pages/categories/#{{category|slugize}}"><i class="fas fa-tag fa-fw"></i>{{category}}</a>
 				  <!-- {% unless forloop.last %}&nbsp;{% endunless %} -->
 				  {% endfor %}
 
@@ -78,6 +78,7 @@ layout: default
 	</li>
 	{% endfor %}
 </ul>
+
+{% include paginator.html %}
 </main>
 </div>
-{% include paginator.html %}

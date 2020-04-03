@@ -2,14 +2,22 @@
 layout: default
 ---
 
-<div class="blog-body">
+<div class="blog-body" id="blog-body">
 
 <div class="blog-title">
 <h1>{{page.title}}</h1>	
 </div>
 
 <div class="blog-info">
-<span class="meta"><i class="fas fa-calendar-alt fa-fw"></i>{{page.date | date_to_string }} </span>	<span class="meta-author"><i class="fas fa-user fa-fw"></i>by- {{page.author}}</span>
+<span class="meta"><i class="fas fa-calendar-alt fa-fw"></i>{{page.date | date_to_string }} </span>	<span class="meta "><i class="fas fa-user fa-fw"></i>by- {{page.author}}</span>
+
+				  {% for category in page.categories %}
+				  <!-- <span class="post-meta">{{ category }}</span> -->
+				  
+				  <a class="meta {{category}}" href="{{site.baseurl}}/categories/#{{category|slugize}}"><i class="fas fa-tag fa-fw"></i>{{category}}</a>
+				  <!-- {% unless forloop.last %}&nbsp;{% endunless %} -->
+				  {% endfor %}
+
 </div>
 
 <div class="blog-gambar">

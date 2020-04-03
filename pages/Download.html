@@ -1,8 +1,11 @@
 ---
 layout: default
-title: Blog Archive
-permalink: /Archive
+permalink: /pages/Download
+title: Download
 ---
+
+
+
 
 <div class="layoutz">
 
@@ -38,25 +41,14 @@ permalink: /Archive
 </div>
 
 <div class="LatestPost" id="Categories">
-  <h1>Blog Archives</h1>
+  <h1><i class="fas fa-download fa-fw"></i> Download</h1>
 </div>
 
 
-<div class="archive-body">
-
-<ul id="project-deck">
-{% for post in site.posts %}
- <li class="archive-list"><span class="archive-date">{{ post.date | date_to_string }}</span> &nbsp; <a class="archive-title" href="{{ post.url }}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>	
-
-</div>
 
 
 
 </main>
 </div>
-
-
 
 
